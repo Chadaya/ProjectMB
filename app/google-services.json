@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "460050995926",
+    "project_id": "cafekp",
+    "storage_bucket": "cafekp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460050995926:android:ad6c5ad5269ce04ecec777",
+        "android_client_info": {
+          "package_name": "org.classapp.cafekp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "460050995926-ite42ndsb2m2td93mllb4igfpg7of1f1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.classapp.cafekp",
+            "certificate_hash": "f7694fdbfd1525696edc20419e992ca29127dcb3"
+          }
+        },
+        {
+          "client_id": "460050995926-sgn251u6hmgna53vm3f5ci1ag7hgo8ep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATjRTUGJXkPJG0hqBcxt3lajFzitFUc90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "460050995926-sgn251u6hmgna53vm3f5ci1ag7hgo8ep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
