@@ -14,24 +14,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CafeKP">
-        <activity android:name=".HomeActivity"              android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".TestActivity"></activity>
+        <activity
+            android:name=".CafeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_map_key" />
 
-        <activity android:name=".NearbyPlacesDemo"  android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".LoginActivity"     android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".RegActivity"       android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".MainActivity"      android:theme="@style/AppTheme.NoActionBar">>
+        <activity
+            android:name=".NearbyPlacesDemo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RegActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

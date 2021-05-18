@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'com.google.gms.google-services'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -55,4 +56,8 @@ dependencies {
     //FirebaseUI for Firebase Realtime Database
     implementation 'com.firebaseui:firebase-ui-database:7.1.1' //
     implementation 'com.github.bumptech.glide:glide:4.11.0' //
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 }

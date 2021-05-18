@@ -11,7 +11,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         val btnCafe = findViewById<ImageButton>(R.id.btn_cafe)
-        btnCafe.setOnClickListener(){startActivity(Intent(this,LoginActivity::class.java))}
+        btnCafe.setOnClickListener(){startActivity(Intent(this,CafeActivity::class.java))}
 
         val btnFav = findViewById<ImageButton>(R.id.btn_fav)
         btnFav.setOnClickListener(){startActivity(Intent(this, RegActivity::class.java))}
