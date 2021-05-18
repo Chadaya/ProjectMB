@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".CafeActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cafe_card"
         android:layout_width="330dp"
         android:layout_height="300dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="12dp"
         app:cardElevation="2dp"
@@ -26,7 +26,7 @@
 
             <TextView
                 android:id="@+id/name_cafe"
-                android:layout_width="294dp"
+                android:layout_width="250dp"
                 android:layout_height="55dp"
                 android:layout_marginTop="208dp"
                 android:paddingLeft="10dp"
@@ -42,11 +42,8 @@
                 android:id="@+id/img_cafe"
                 android:layout_width="225dp"
                 android:layout_height="180dp"
-                android:layout_marginStart="50dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="3dp"
                 app:layout_constraintBottom_toTopOf="@+id/name_cafe"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
