@@ -2,9 +2,11 @@ package org.classapp.cafekp
 
 import android.content.Context
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -15,6 +17,7 @@ import com.squareup.picasso.Picasso
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
+import java.util.jar.Attributes
 
 class  CafeFragment: Fragment() {
     private var mRecyclerView: RecyclerView? = null
@@ -25,10 +28,12 @@ class  CafeFragment: Fragment() {
         val name_cafe: TextView = itemView.findViewById(R.id.name_cafe)
         val img_cafe: ImageView = itemView.findViewById(R.id.img_cafe)
         val cardView: CardView = itemView.findViewById(R.id.cafe_card)
+
+        val eventFavBtn: ImageButton = itemView.findViewById(R.id.btnfav_off) //btnFav ยังไม่ใส่ (ถ้าจะใช้ใส่ปุ่มที่ card_cafe)
     }
 
-    private class EventListAdapter(var eventObjects: ArrayList<JSONObject>) :
-        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private inner class EventListAdapter(var eventObjects: ArrayList<JSONObject>) :
+            RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             val viewInflater: LayoutInflater = LayoutInflater.from(parent.context)
@@ -46,6 +51,7 @@ class  CafeFragment: Fragment() {
             val img = eventObj.getString("Image")
             val name = eventObj.getString("Name")
             val id = eventObj.getInt("id").toString()
+
             if (holder is EventItemViewHolder) {
 
                 val eventViewHolder: EventItemViewHolder = holder
@@ -55,19 +61,73 @@ class  CafeFragment: Fragment() {
                 }
                 eventViewHolder.name_cafe.text = name
                 Picasso.get().load(img).into(eventViewHolder.img_cafe)
-
+// BtnFav func
+                if (checkMyFavoriteEvent(name)){
+                    eventViewHolder.eventFavBtn.setImageResource(R.drawable.btn_fav_on)
+                    eventViewHolder.eventFavBtn.setOnClickListener {
+                        removeFromMyFavoriteEvent(name)
+                        notifyDataSetChanged()
+                    }
+                }
+                else
+                {
+                    eventViewHolder.eventFavBtn.setImageResource(R.drawable.btn_fav_off)
+                    eventViewHolder.eventFavBtn.setOnClickListener {
+                        addToMyFavoriteEvent(name)
+                        notifyDataSetChanged()
+                    }
+                }
             }
         }
     }
 
+    public fun checkMyFavoriteEvent(Name: String): Boolean {
+        var sharedPref = PreferenceManager.getDefaultSharedPreferences(activity)
+        var favEventSet = sharedPref.getStringSet("favEvents", null)
+
+        if (favEventSet == null)
+            return false
+        else
+            return favEventSet.contains(Name) //check if event is in the set
+    }
+
+    public fun addToMyFavoriteEvent(Name: String) {
+        var sharedPref = PreferenceManager.getDefaultSharedPreferences(activity)
+        var favEventSet = sharedPref.getStringSet("favEvents", null)
+
+        var newFavEventSet: HashSet<String>   //For editing string set
+        if (favEventSet == null)
+            newFavEventSet = HashSet<String>()   //no existing set, create empty set
+        else
+            newFavEventSet = HashSet<String>(favEventSet)  //create set with existing
+
+        newFavEventSet.add(Name)
+        var prefEditor = sharedPref.edit()
+        prefEditor.putStringSet("favEvents", newFavEventSet)
+        prefEditor.commit()
+    }
+
+    public fun removeFromMyFavoriteEvent(Name: String) {
+        var sharedPref = PreferenceManager.getDefaultSharedPreferences(activity)
+        var favEventSet = sharedPref.getStringSet("favEvents", null)
+
+        if (favEventSet != null && favEventSet.contains(Name)) {
+            var newFavEventSet = HashSet<String>(favEventSet)  //create new set from existing
+            newFavEventSet.remove(Name)
+            var prefEditor = sharedPref.edit()
+            prefEditor.putStringSet("favEvents", newFavEventSet)
+            prefEditor.commit()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
 
     ): View? {
         // Inflate the layout for this fragment
@@ -78,7 +138,7 @@ class  CafeFragment: Fragment() {
         mRecyclerView?.layoutManager = mLayoutManager
 
         //show data
-        val json = this.context?.let { getJsonDataFromAsset(it,"data.json") }
+        val json = this.context?.let { getJsonDataFromAsset(it, "data.json") }
         if (json != null) {
             parseJsonEventV2(json.toString())
         }
@@ -102,20 +162,18 @@ class  CafeFragment: Fragment() {
 
     companion object {
 
-        fun newInstance():CafeFragment{
+        fun newInstance(): CafeFragment {
             return CafeFragment()
         }
     }
 
-
     private var eventObjects = arrayListOf<JSONObject>()
-    private fun parseJsonEventV2(jsonStr:String){
+    private fun parseJsonEventV2(jsonStr: String) {
 
         try {
 
             var jsonarr = JSONArray(jsonStr)
-            for (i in 0..jsonarr.length()-1)
-            {
+            for (i in 0..jsonarr.length() - 1) {
                 var jsonobj = jsonarr.getJSONObject(i)
                 eventObjects.add(jsonobj)
             }
@@ -123,8 +181,9 @@ class  CafeFragment: Fragment() {
             mAdapter = EventListAdapter(eventObjects)
             mRecyclerView?.adapter = mAdapter
 
-        }catch (e:IOException){
+        } catch (e: IOException) {
 
         }
     }
 }
+

@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CafeKP">
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".FavActivity"></activity>
+        <activity android:name=".TestActivity" />
         <activity
             android:name=".CafeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
