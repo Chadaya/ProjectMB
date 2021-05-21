@@ -5,7 +5,6 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
-import kotlinx.android.synthetic.main.fragment_fav_cafe.*
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +20,8 @@ class HomeActivity : AppCompatActivity() {
         val btnNear = findViewById<ImageButton>(R.id.btn_near)
         btnNear.setOnClickListener(){startActivity(Intent(this, NearbyPlacesDemo::class.java))}
 
-        val btnMe = findViewById<ImageButton>(R.id.btn_me)
-        btnMe.setOnClickListener(){startActivity(Intent(this, MeActivity::class.java))}
+        val btnUs = findViewById<ImageButton>(R.id.btn_us)
+        btnUs.setOnClickListener(){startActivity(Intent(this, UsActivity::class.java))}
 
         val btnWn = findViewById<ImageButton>(R.id.btn_wn)
 //        btnWn.setOnClickListener(){startActivity(Intent(this, NearbyPlacesDemo::class.java))}
