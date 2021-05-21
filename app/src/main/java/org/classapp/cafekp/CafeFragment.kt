@@ -17,7 +17,6 @@ import com.squareup.picasso.Picasso
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
-import java.util.jar.Attributes
 
 class  CafeFragment: Fragment() {
     private var mRecyclerView: RecyclerView? = null

@@ -24,30 +24,30 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="278dp"
-            >
+            android:background="@drawable/bg_card">
 
             <TextView
                 android:id="@+id/name_cafe"
-                android:layout_width="186dp"
-                android:layout_height="52dp"
-                android:layout_marginTop="204dp"
+                android:layout_width="233dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="212dp"
                 android:paddingLeft="10dp"
                 android:paddingTop="4dp"
                 android:text="--- Name Cafe ---"
                 android:textColor="#391402"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.457"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/img_cafe"
-                android:layout_width="200dp"
-                android:layout_height="158dp"
+                android:layout_width="233dp"
+                android:layout_height="171dp"
                 android:layout_marginBottom="3dp"
                 app:layout_constraintBottom_toTopOf="@+id/name_cafe"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
@@ -55,9 +55,10 @@
 
             <ImageButton
                 android:id="@+id/btnfav_off"
-                android:layout_width="35dp"
-                android:layout_height="66dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="36dp"
                 android:background="@drawable/btn_fav_off"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
