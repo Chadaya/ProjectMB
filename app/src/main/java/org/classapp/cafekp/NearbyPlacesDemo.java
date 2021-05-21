@@ -89,11 +89,11 @@ public class NearbyPlacesDemo extends AppCompatActivity {
                 int i = spType.getSelectedItemPosition();
                 //Initialize url
                 String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json" + //Url
-                "?location=" + currentLat + "," + currentLong + //Location latitude and longitude
-                "&radius=5000" + //Nearby radius
-                "&type=" + placeTypeList[i] + //Place type
-                "&sensor=true" + //Sensor
-                "&key=" + getResources().getString(R.string.google_map_key); //Google map key
+                        "?location=" + 37.331283774959275 + "," +  -121.91643225345823 + //Location latitude and longitude
+                        "&radius=5000" + //Nearby radius
+                        "&type=" + placeTypeList[i] + //Place type
+                        "&sensor=true" + //Sensor
+                        "&key=" + getResources().getString(R.string.google_map_key); //Google map key
 
                 //Execute place task method to download json data
                 new PlaceTask().execute(url);
