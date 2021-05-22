@@ -18,7 +18,7 @@ class HomeActivity : AppCompatActivity() {
         btnFav.setOnClickListener(){startActivity(Intent(this, FavActivity::class.java))}
 
         val btnNear = findViewById<ImageButton>(R.id.btn_near)
-        btnNear.setOnClickListener(){startActivity(Intent(this, NearbyPlacesDemo::class.java))}
+        btnNear.setOnClickListener(){startActivity(Intent(this, MapsActivity::class.java))}
 
         val btnUs = findViewById<ImageButton>(R.id.btn_us)
         btnUs.setOnClickListener(){startActivity(Intent(this, UsActivity::class.java))}
