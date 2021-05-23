@@ -58,7 +58,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     var name = i.getString("Name")
                     var lat = i.getString("lat")
                     var lon = i.getString("lon")
-                    Log.i("Data $name ,$lat,$lon","Oat")
+//                    Log.i("Data $name ,$lat,$lon","Oat")
                     val LatLng = LatLng(lat.toDouble(),lon.toDouble())
                     val markerOptions =  MarkerOptions()
                     markerOptions.position(LatLng)
